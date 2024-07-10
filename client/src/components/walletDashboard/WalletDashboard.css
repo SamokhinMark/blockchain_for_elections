@@ -1,0 +1,12 @@
+.vote_wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.vote_candidates {
+    font-size: 20px;
+}
+.vote_candidates__name {
+    margin-left: 10px;
+}
