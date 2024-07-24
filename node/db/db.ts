@@ -12,7 +12,7 @@ export class DB {
     static async setupDatabase() {
         function openDb() {
             return open({
-                filename: 'node/database.db',
+                filename: '../database.db',
                 driver: sqlite3.Database
             });
         }
@@ -351,4 +351,5 @@ export class DB {
             throw e;
         }
     }
+	
 }

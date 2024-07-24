@@ -50,33 +50,6 @@ export async function createServerNode() {
         logMessage(id, `connected to: ${e.detail.toString()}`);
     });
 
-    // serverNode.services.pubsub.addEventListener('message', async (message) => {
-    //     const messageJSON = JSON.parse(new TextDecoder().decode(message.detail.data));
-    //     switch (messageJSON.type) {
-    //         case 'last-block':
-    //             if (isLastBlockReceived) {
-    //                 return;
-    //             }
-    //             const lastBlockHash = messageJSON.data.block.currBlockHash;
-    //             const allPeersInPubSub = serverNode.services.pubsub.getSubscribers(TOPIC);
-    //             const rng = new SeedRandom(lastBlockHash);
-    //             function chooseRandomNode(nodes) {
-    //                 const randomIndex = Math.floor(rng.random() * nodes.length);
-    //                 return nodes[randomIndex];
-    //             }
-    //             const selectedNode = chooseRandomNode(allPeersInPubSub);
-    //
-    //             const messageSelectedGenerator = JSON.stringify({
-    //                 type: 'generator',
-    //                 data: selectedNode
-    //             })
-    //             const messageSelectedGeneratorEncode: Uint8Array = new TextEncoder().encode(messageSelectedGenerator);
-    //             await serverNode.services.pubsub.publish(TOPIC, messageSelectedGeneratorEncode);
-    //             isLastBlockReceived = true;
-    //             break;
-    //     }
-    // })
-
     setInterval(async () => {
         const message = {
             type: "start-election",
